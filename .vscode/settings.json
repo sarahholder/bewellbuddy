@@ -1,3 +1,11 @@
 {
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "be_well_buddy",
+            "database": "${workspaceFolder:be_well_buddy}/db.sqlite3"
+        }
+    ]
 }
