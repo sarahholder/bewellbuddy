@@ -1,0 +1,68 @@
+[
+    {
+      "model": "auth.user",
+      "pk": 2,
+      "fields": {
+        "password": "pbkdf2_sha256$150000$10yCtpQpDTEI$PwDkDJvyKpH7xSLQhOXl2yY7t3yxu59/l6eEtDT0Hm8=",
+        "last_login": null, 
+        "is_superuser": false, 
+        "username": "my_fred", 
+        "first_name": "Fred",
+        "last_name": "Jones",
+        "email": "fred@bangazon.com",
+        "is_staff": false,
+        "is_active": true, 
+        "date_joined": "2018-10-03T14:06:30.047Z"
+      }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+          "password": "pbkdf2_sha256$150000$10yCtpQpDTEI$PwDkDJvyKpH7xSLQhOXl2yY7t3yxu59/l6eEtDT0Hm8=",
+          "last_login": null, 
+          "is_superuser": false, 
+          "username": "fastdriver", 
+          "first_name": "Luke",
+          "last_name": "Simpson",
+          "email": "lukey@bangazon.com",
+          "is_staff": false,
+          "is_active": true, 
+          "date_joined": "2018-10-03T14:06:30.047Z"
+        }
+      },
+      {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+          "password": "pbkdf2_sha256$150000$10yCtpQpDTEI$PwDkDJvyKpH7xSLQhOXl2yY7t3yxu59/l6eEtDT0Hm8=",
+          "last_login": null, 
+          "is_superuser": false, 
+          "username": "gigi", 
+          "first_name": "cindy",
+          "last_name": "Long",
+          "email": "fred@bangazon.com",
+          "is_staff": false,
+          "is_active": true, 
+          "date_joined": "2018-10-03T14:06:30.047Z"
+        }
+      },
+      {
+          "model": "auth.user",
+          "pk": 5,
+          "fields": {
+            "password": "pbkdf2_sha256$150000$10yCtpQpDTEI$PwDkDJvyKpH7xSLQhOXl2yY7t3yxu59/l6eEtDT0Hm8=",
+            "last_login": null, 
+            "is_superuser": false, 
+            "username": "sallyhc", 
+            "first_name": "sally",
+            "last_name": "daHurricane",
+            "email": "sallyHasTwoHumps@bangazon.com",
+            "is_staff": false,
+            "is_active": true, 
+            "date_joined": "2018-10-03T14:06:30.047Z"
+          }
+        }
+  
+
+  ]

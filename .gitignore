@@ -1,4 +1,7 @@
 
+db.sqlite3
+db.sqlite3-journal
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -11,7 +14,7 @@ pip-delete-this-directory.txt
 # Django stuff:
 *.log
 local_settings.py
-
+settings.py
 # pyenv
 .python-version
 
@@ -19,7 +22,8 @@ local_settings.py
 .env
 
 # virtualenv
-workforceenv/
+bewellbuddyenv/
+bewellbuddyenv
 .vscode
 
 .DS_Store
@@ -28,6 +32,7 @@ media/
 *.pyc
 *.db
 *.pid
+*.pot
 
 # django migrations
 migrations

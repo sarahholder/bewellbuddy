@@ -1,8 +1,5 @@
 from django.db import models
-from datetime import datetime
 from django.contrib.auth.models import User
-
-
 
 class Medicine(models.Model):
     
@@ -11,12 +8,9 @@ class Medicine(models.Model):
     dosage = models.CharField(max_length=50)
     frequency = models.CharField(max_length=50)
     comments = models.CharField(max_length=250)
-    start_date = models.DateField(default=datetime.now())
-    end_date = models.DateField()
-    uploadImg = models.ImageField()
-    
-
-
+    start_date = models.DateField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
+    uploadImg = models.CharField(max_length=500)
 
 
 

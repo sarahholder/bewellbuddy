@@ -1,0 +1,87 @@
+[
+    {
+
+        "model":"app.medicine",
+        "pk": 1,
+        "fields": {
+            "user_id": "1",
+            "name": "Ventolin HFA",
+            "dosage": "90 mcg",
+            "frequency": "As needed",
+            "comments": "Take two puffs as needed",
+            "start_date": "2002-02-13",
+            "end_date": "2019-04-08",
+            "uploadImg": "https://i.pinimg.com/originals/7b/c9/61/7bc961eb5e1d9066bdbed259da86e5c0.jpg"    
+        }
+    },
+    {
+        "model":"app.medicine",
+        "pk": 2,
+        "fields": {
+            "user_id": "1",
+            "name": "Nexium",
+            "dosage": "20 mg",
+            "frequency": "1x a day",
+            "comments": "Take everyday",
+            "start_date": "2020-06-12",
+            "end_date": null,
+            "uploadImg": "https://www.knowyourotcs.org/wp-content/uploads/2019/05/305732450148.7-768x768.png"    
+        }
+    },
+    {
+        "model":"app.medicine",
+        "pk": 3,
+        "fields": {
+            "user_id": "1",
+            "name": "Fluticasone",
+            "dosage": "50 mcg",
+            "frequency": "2 sprays each nostril each day",
+            "comments": "Week 1: use 2 sprays in each nostril once a day **Week 2: use 1-2 stays in each nostril once a day as needed",
+            "start_date": "2020-09-16",
+            "end_date": null,
+            "uploadImg": "https://i.ebayimg.com/images/g/2agAAOSwxQtc2rQ7/s-l640.jpg"    
+        }
+    },
+    {
+        "model":"app.medicine",
+        "pk": 4,
+        "fields": {
+            "user_id": "1",
+            "name": "levothyroxine",
+            "dosage": "100mcg",
+            "frequency": "1x a day",
+            "comments": "watch for side effects and notify doctor",
+            "start_date": "2019-04-10",
+            "end_date": "2019-06-10",
+            "uploadImg": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1552137884l/44313090._SY475_.jpg"    
+        }
+    },
+    {
+        "model":"app.medicine",
+        "pk": 4,
+        "fields": {
+            "user_id": "1",
+            "name": "Humira",
+            "dosage": "40 mg",
+            "frequency": "Every Other Week",
+            "comments": "Starting on day one every other week",
+            "start_date": "2018-01-19",
+            "end_date": "2019-01-19",
+            "uploadImg": "https://www.humiradermpro.com/content/dam/humiradermproivy/images/psa-mobile.png"    
+        }
+    },
+    {
+        "model":"app.medicine",
+        "pk": 6,
+        "fields": {
+            "user_id": "1",
+            "name": "Zyrtec",
+            "dosage": "40 mg",
+            "frequency": "1x a day",
+            "comments": "",
+            "start_date": "2009-10-10",
+            "end_date": null,
+            "uploadImg": "https://media.officedepot.com/image/upload/b_rgb:FFFFFF,c_pad,dpr_1.0,f_auto,h_666,q_auto,w_500/c_pad,h_666,w_500/v1/products/9417221/9417221_o02_zyrtec_antihistamine_allergy_tablets?pgw=1"    
+        }
+    }
+]
