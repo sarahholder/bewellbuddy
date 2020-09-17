@@ -1,0 +1,22 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<div>
+    <h2>Entries</h2>
+
+    {%for entry in entries %}
+    <div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-action"> {{ entry.entry_date }} </li>
+                {% for symptomEntry in  entry.symptoms.all %}
+                <div class="d-flex flex-wrap">
+                    <li class="list-group-item">
+                    <span class="badge badge-info badge-pill color-{{ symptomEntry.symptom.color }}" >{{ symptomEntry.symptom }}</p>
+                    </li>
+                {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

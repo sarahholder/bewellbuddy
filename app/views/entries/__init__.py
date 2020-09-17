@@ -1,0 +1,1 @@
+from .list import entries_list

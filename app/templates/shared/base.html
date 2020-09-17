@@ -31,7 +31,7 @@
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#">
+                    <a href="/">
                        <img class="menuIcon" src="../../static/images/home.png" alt="home icon"/> 
                         Home
                     </a>
@@ -43,7 +43,7 @@
                     </a>
                     <ul class="collapse list-unstyled" id="symptomSubmenu">
                         <li>
-                            <a class="menu-list" href="#">View</a>
+                            <a class="menu-list" href="{% url 'app:entries' %}">View</a>
                         </li>
                         <li>
                             <a class="menu-list" href="#">Add</a>
@@ -85,7 +85,6 @@
                 </div>
             </nav>
             <main class="main-content">{% block content %} {% endblock %}</main>
-            <h2>This is where I will be adding awesome content</h2>
         </div>
     </div>
 

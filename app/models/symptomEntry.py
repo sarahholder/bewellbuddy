@@ -1,11 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+from .entry import Entry
 from .symptom import Symptom
 
 class SymptomEntry(models.Model):
+    entry = models.ForeignKey(Entry, on_delete=models.CASCADE, default=None, related_name="symptoms")
+    symptom = models.ForeignKey(Symptom, on_delete=models.CASCADE, default=None)
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    symptom = models.ForeignKey(Symptom, on_delete=models.CASCADE)
-    entry_date = models.DateField(null=True, blank=True, auto_now=True)
-    comments = models.CharField(max_length=250, blank=True, null=True)
-    

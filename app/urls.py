@@ -1,4 +1,6 @@
 from django.urls import path, include 
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 app_name = 'app'
@@ -7,5 +9,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('login/', views.login, name='login'),
     path('logout', views.logout_user, name='logout'),
-    path('symptomEntries', views.symptomEntries_list, name='symptomEntries')
-]
+    path('entries', views.entries_list, name='entries')
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
