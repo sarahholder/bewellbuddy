@@ -1,0 +1,13 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<div>
+    <h2>Hey Yeah Look</h2>
+    {%for entry in entries %}
+    <div>
+    <h4>{{ entry.comments }}</h4>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
