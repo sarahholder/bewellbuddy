@@ -17,6 +17,14 @@
     },
     {
         "model": "app.symptomEntry",
+        "pk": 9,
+        "fields": {
+            "entry": 1,
+            "symptom": 5        
+            }
+    },
+    {
+        "model": "app.symptomEntry",
         "pk": 3,
         "fields": {
             "entry": 1,
@@ -62,6 +70,5 @@
             "entry": 5,
             "symptom": 1         
             }
-    }
-
+    }   
 ]

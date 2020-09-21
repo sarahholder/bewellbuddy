@@ -14,11 +14,15 @@ Where
 
 DELETE FROM app_entry;
 
+
 update django_admin_log
 SET 
     user_id = 1
 WHERE 
     user_id = 6;
+
+
+
 
 
 

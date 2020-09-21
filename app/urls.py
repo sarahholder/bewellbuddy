@@ -8,6 +8,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', views.home, name='home'),
     path('login/', views.login, name='login'),
-    path('logout', views.logout_user, name='logout'),
-    path('entries', views.entries_list, name='entries')
+    path('logout/', views.logout_user, name='logout'),
+    path('entries', views.entries_list, name='entries'),
+    path('entryform', views.entry_form, name='entryform')
+
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
