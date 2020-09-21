@@ -19,6 +19,8 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
     <div class="wrapper">
@@ -31,7 +33,7 @@
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#">
+                    <a href="/">
                        <img class="menuIcon" src="../../static/images/home.png" alt="home icon"/> 
                         Home
                     </a>
@@ -43,10 +45,10 @@
                     </a>
                     <ul class="collapse list-unstyled" id="symptomSubmenu">
                         <li>
-                            <a class="menu-list" href="#">View</a>
+                            <a class="menu-list" href="{% url 'app:entries' %}">View</a>
                         </li>
                         <li>
-                            <a class="menu-list" href="#">Add</a>
+                            <a class="menu-list" href="{% url 'app:entryform' %}">Add</a>
                         </li>
                     </ul>
                       <a href="#medSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -84,8 +86,7 @@
                     </button>
                 </div>
             </nav>
-
-            <h2>This is where I will be adding awesome content</h2>
+            <main class="main-content">{% block content %} {% endblock %}</main>
         </div>
     </div>
 
@@ -103,6 +104,8 @@
             });
         });
     </script>
+
 </body>
 
 </html>
+

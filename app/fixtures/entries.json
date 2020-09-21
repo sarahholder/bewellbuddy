@@ -1,50 +1,45 @@
 [
     {
-        "model": "app.symptomEntry",
+        "model": "app.Entry",
         "pk": 1,
         "fields": {
              "user_id": 1,
-             "symptom_id": 2, 
              "entry_date": "2020-09-15",
              "comments": "Fever 102.3"          
             }
     },
     {
-        "model": "app.symptomEntry",
+        "model": "app.Entry",
         "pk": 2,
         "fields": {
              "user_id": 1,
-             "symptom_id": 1, 
-             "entry_date": "2020-09-15",
+             "entry_date": "2020-09-16",
              "comments": "covered up but still shivering"          
             }
     },
     {
-        "model": "app.symptomEntry",
+        "model": "app.Entry",
         "pk": 3,
         "fields": {
              "user_id": 1,
-             "symptom_id": 5, 
-             "entry_date": "2020-09-15",
+             "entry_date": "2020-09-13",
              "comments": "coughing so much my chest hurts"          
             }
     },
     {
-        "model": "app.symptomEntry",
+        "model": "app.Entry",
         "pk": 4,
         "fields": {
              "user_id": 1,
-             "symptom_id": 9, 
              "entry_date": "2020-09-14",
              "comments": "a lot of anxiety when I wake up"          
             }
     },
     {
-        "model": "app.symptomEntry",
+        "model": "app.Entry",
         "pk": 5,
         "fields": {
              "user_id": 1,
-             "symptom_id": 10, 
              "entry_date": "2020-09-01",
              "comments": "been feeling dizzy a lot"          
             }
