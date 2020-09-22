@@ -7,7 +7,7 @@
     {% if entry.id is not None %}
     <form action="{% url 'app:edit_entry_form' entry.id %}" method="POST" class="entry_form">
     {% else %}
-    <form action="{% url 'app:entryform' %}" method="GET" class="entry_form">
+    <form action="{% url 'app:entriesform' %}" method="GET" class="entry_form">
     {% endif %}
     {% csrf_token %}
         <fieldset>

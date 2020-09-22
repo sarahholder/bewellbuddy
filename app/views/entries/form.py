@@ -16,31 +16,11 @@ def entry_form(request):
         }
         return render(request, template, context)
 
-          
-    if request.method == 'POST':
-        entry = Entry.objects.get(pk=entry_id) 
-        entry_symptoms = SymptomEntry.objects.all()
-        entrydate = entry.entry_date
-        todays_date = datetime.date.today().strftime("%Y-%m-%d")
-        for entry_symptom in entry_symptoms:
-            if(entry_symptom.id == entry_id):
-                symptoms = []
-                symptoms.append(entry_symptom)
-                
-                context = {
-                    'entry': entry,
-                    'symptoms': symptoms,
-                    'entrydate': entrydate, 
-                    'todays_date': todays_date
-
-                }
-                return render(request, "entries/form.html", context)
-
 def edit_entry_form(request, entry_id):
     if request.method == 'GET':
         template = 'entries/form.html'
         return render(request, template)
-
+    
     if request.method == 'POST':
         entry = Entry.objects.get(pk=entry_id) 
         entry_symptoms = SymptomEntry.objects.all()
@@ -58,11 +38,9 @@ def edit_entry_form(request, entry_id):
                     'todays_date': todays_date
 
                 }
-                return render(request, "entries/form.html", context)
+                return render(request, "entries/list.html", context)
         
 
-
-  
         
         
 

@@ -2,7 +2,7 @@
 
 {% block content %}
 <div>
-    <a href="{% url 'app:entryform' %}"><i class="fas fa-plus-circle fa-2x float-right mr-5 pageFas"></i></a>
+    <a href="{% url 'app:entriesform' %}"><i class="fas fa-plus-circle fa-2x float-right mr-5 pageFas"></i></a>
     <h2>Entries</h2>
     {%for entry in entries %}
       <a href="{% url 'app:edit_entry_form' entry.id %}">
