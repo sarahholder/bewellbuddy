@@ -1,5 +1,14 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+.medicineList {
+    min-width: 140px;
+}
+.medicineList_name {
+    min-width: 200px;
+}
+.medicineList_date {
+    min-width: 250px;
+}
 .pageFas {
     color: #073B4C !important;
 }
@@ -25,6 +34,7 @@
 .btn-info{
     background-color: #073B4C !important;
     border: #073B4C;
+    margin: 10px;
 }
 .bwbIconCollapse {
     width: 3em;
@@ -276,9 +286,14 @@ a.article:hover {
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
-      
+@media (min-width: 769px) {
+    .hello {
+        display: None
+    }    
+}
 
 @media (max-width: 768px) {
+    
     .bwbIcon {
         width: 2.2em;
     }

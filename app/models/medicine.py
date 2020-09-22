@@ -10,7 +10,7 @@ class Medicine(models.Model):
     comments = models.CharField(max_length=250)
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
-    uploadImg = models.CharField(max_length=500)
+    uploadImg = models.CharField(max_length=500, null=True, blank=True)
 
 
 

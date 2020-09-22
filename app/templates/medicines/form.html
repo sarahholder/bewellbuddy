@@ -1,0 +1,37 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+<a href="{% url 'app:medicines' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
+<h2>Medicine Entry</h2>
+    <form action="{% url 'app:medicines' %}" method="POST" class="form">
+    {% csrf_token %}
+        <fieldset>
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="name" required>
+        </fieldset>
+         <fieldset>
+            <label for="dosage">Dosage:</label>
+            <input id="dosage" type="text" name="dosage" required>
+        </fieldset>
+        <fieldset>
+            <label for="frequency">Frequency:</label>
+            <input id="frequency" type="text" name="frequency" required>
+        </fieldset>
+        <fieldset>
+            <label for="start_date">Start Date:</label>
+            <input id="start_date" type="date" name="start_date" value={{ todays_date }} required>
+        </fieldset>
+        <fieldset>
+            <label for="end_date">End Date:</label>
+            <input id="end_date" type="date" name="end_date">
+        </fieldset>
+         <fieldset>
+            <label for="comments">Comments:</label>
+            <input id="comments" type="text" name="comments">
+        </fieldset>
+        <fieldset>
+            <label for="uploadImg">Image Url:</label>
+            <input id="uploadImg" type="text" name="uploadImg">
+        </fieldset>
+        <button class="btn btn-info" type="submit">Add Medication</button>
+    </form>
+{% endblock content %}
