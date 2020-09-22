@@ -2,26 +2,22 @@
 
 {% block content %}
 <div>
-    <h2>List of Current Medication</h2>
+    <a href="{% url 'app:medicine_form' %}"><i class="fas fa-plus-circle fa-2x float-right mr-5 pageFas"></i></a>
+    <h2>Current Medications</h2>
     <p>Click one below to view more details</p>
-    <div class="d-flex flex-wrap">
-        <div class="col-3">Name:</div>
-        <div class="col-2">Start Date:</div>
-        <div class="col-4">Frequency:</div>   
-    </div>
     {%for medicine in medicines %}
         {% if medicine.end_date is false %}
     <a href="{% url 'app:medicine_detail' medicine.id %}">
     <div class="d-flex flex-wrap">
         <ul class="list-group list-group-flush entryList">
             <li class="list-group-item list-group-item-action d-flex flex-wrap medHover">
-                <div class="col-3">
+                <div class="medicineList_name">
                     <p>{{ medicine.name }}</p>
                 </div> 
-                <div class="col-2">
+                <div class="medicineList">
                     <p>{{ medicine.dosage }}</p>
                 </div>
-                <div class="col-4">
+                <div class="medicineList">
                     <p>{{ medicine.frequency }}</p>
                 </div>
             </li></a>

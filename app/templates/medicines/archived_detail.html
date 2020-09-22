@@ -2,7 +2,7 @@
 
 {% block content %}
 <div>
-<a href="{% url 'app:medicines' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
+<a href="{% url 'app:achived_medicines'  %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
     <h2>{{ medicine.name }}</h2>
     <div class="d-flex flex-wrap">
         <p class="medicineKeys">Dosage:</p> <p>{{ medicine.dosage }}</p>
@@ -24,8 +24,8 @@
      </div>
         {% endif %}
         {% if medicine.uploadImg %}
-     <div class="d-flex flex-wrap container">
-       <img class="img-fluid" src="{{ medicine.uploadImg }}"  alt="{{ medicine.name }}" />
+     <div class="d-flex flex-wrap maxImgWidth">
+       <img src="{{ medicine.uploadImg }}"  alt="{{ medicine.name }}"" />
        {% endif %}
      </div>
 </div>

@@ -2,27 +2,24 @@
 
 {% extends 'shared/base.html' %}
 {% block content %}
-<h2>Enter your symptoms</h2>
-    <form action="{% url 'app:entries' %}" method="POST" class="form">
+<a href="{% url 'app:entries' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
+<h2>Symptoms Entry</h2>
+    <form action="{% url 'app:entries' %}" method="POST" class="entry_form">
     {% csrf_token %}
-    <ul>
         <fieldset>
             <label for="date">Enter date:</label>
             <input id="date" type="date" name="entry_date" max="{{ todays_date }}" value="{{ todays_date }}" required>
         </fieldset>
-            <label> Symptom Choices: </label>
-        {% for symptom in symptoms %}
-        <li>
-            <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}>
-            <label for={{ symptom.id }}>{{ symptom.name }}</label>
-        </li>
-        {% endfor %}
-    </ul>
+        <label> Symptom Choices: </label>
+            {% for symptom in symptoms %}
+                    <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}>
+                    <label for={{ symptom.id }}>{{ symptom.name }}</label>
+            {% endfor %}
           <fieldset>
             <label for="comments">Comments:</label>
             <input id="comments" type="text" name="comments">
         </fieldset>
-        <button type="submit">Submit</button>
+        <button class="btn btn-info" type="submit" name="submit">Add Entry</button>
     </form>
         
 {% endblock content %}

@@ -1,5 +1,5 @@
 from django import forms
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render
 from app.models import Symptom
 import datetime
 
@@ -8,7 +8,6 @@ def entry_form(request):
         symptoms = Symptom.objects.all()
         template = 'entries/form.html'
         todays_date = datetime.date.today().strftime("%Y-%m-%d")
-        print(todays_date)
         context = {
             'symptoms': symptoms,
             'todays_date': todays_date

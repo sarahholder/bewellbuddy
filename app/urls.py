@@ -12,6 +12,9 @@ urlpatterns = [
     path('entries', views.entries_list, name='entries'),
     path('entryform', views.entry_form, name='entryform'),
     path('medicines', views.medicines_list, name='medicines'),
-    path('medicine_detail/<int:medicine_id>', views.medicine_detail, name='medicine_detail')
+    path('medicine_detail/<int:medicine_id>', views.medicine_detail, name='medicine_detail'),
+    path('medicine_form', views.medicine_form, name="medicine_form"),
+    path('archived_medicine', views.archived_medicines_list, name="archived_medicine"),
+    path('archived_medicine/<int:medicine_id>', views.archived_medicines_list, name="archived_medicine")
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
