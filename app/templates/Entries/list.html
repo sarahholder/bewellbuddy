@@ -2,29 +2,31 @@
 
 {% block content %}
 <div>
-        <a href="{% url 'app:entryform' %}"><i class="fas fa-plus-circle fa-2x float-right mr-5 pageFas"></i></a>
+    <a href="{% url 'app:entryform' %}"><i class="fas fa-plus-circle fa-2x float-right mr-5 pageFas"></i></a>
     <h2>Entries</h2>
     {%for entry in entries %}
-    <div class="d-flex flex-wrap">
+      <a href="{% url 'app:entries_detail' entry.id %}">
         <ul class="list-group list-group-flush entryList ">
-            <li class="list-group-item list-group-item-action d-flex flex-wrap">
-            <div>
-            <h4 class="entryDate mr-4">{{ entry.entry_date }} </h4>
-            </div>
-            <div class=" pillSection">
-                    {% for symptomEntry in  entry.symptoms.all %}
-                        <h3 class="symptomBadge col-1 p-1 badge badge-info badge-pill color-{{ symptomEntry.symptom.color }}" >{{ symptomEntry.symptom }}</h3>
-                    {% endfor %}
-            </div>
-            <div class="d-flex flex-wrap">
-            {% if entry.comments %}
-                <p class="mb-0"><strong>Comments:</strong></p> <p class="ml-3 mb-0 ml-0">{{entry.comments}}</p>
-            {% endif %}
-        </div>
-            </div>
-        </li>
-        </ul>
-        {% endfor %}
+            <li class="list-group-item list-group-item-action">
+                <div class="d-flex flex-wrap">
+                    <div>
+                        <h4 class="entryDate mr-4">{{ entry.entry_date }} </h4>
+                    </div>
+                    <div class=" pillSection">
+                            {% for symptomEntry in  entry.symptoms.all %}
+                                <h3 class="symptomBadge col-1 p-1 badge badge-info badge-pill color-{{ symptomEntry.symptom.color }}" >{{ symptomEntry.symptom }}</h3>
+                            {% endfor %}            
+                    </div>
+                    <div>
+                        {% if entry.comments %}
+                            <p class="mb-0 comments"><strong>Comments:</strong></p> <p class="ml-3 mb-0 ml-0">{{entry.comments}}</p>
+                        {% endif %}
+                    </div> 
+                </div>
+            </li>
+        </ul> 
+        </a>
+    {% endfor %}
 </div>
 
 {% endblock content %}

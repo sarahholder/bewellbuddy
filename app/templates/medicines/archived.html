@@ -2,35 +2,39 @@
 
 {% block content %}
 <div>
-    <a href="{% url 'app:medicines' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
+    <a href="{% url 'app:archived_medicine' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
     <h2>Archived Medication</h2>
     <p>Click one below to view more details</p>
     {%for medicine in medicines %}
         {% if medicine.end_date is not false %}
     <div>
         <ul class="list-group list-group-flush entryList">
-        <a href="{% url 'app:medicine_detail' medicine.id %}">
             <li class="list-group-item list-group-item-action">
-                <div class="d-flex flex-wrap">
+                <div class="d-flex flex-wrap p-1 m-2">
+                <a href="{% url 'app:medicine_detail' medicine.id %}">
+                <div>
                     <div class="medicineList_name">
-                        <p>{{ medicine.name }}</p>
+                        <h5>{{ medicine.name }}</h5>
                     </div> 
-                    <div class="medicineList">
-                        <p>{{ medicine.dosage }}</p>
+                    <div>
+                        <div class="medicineList">
+                            <p>{{ medicine.dosage }}</p>
+                        </div>
+                        <div class="medicineList_date">
+                          <p>{{ medicine.frequency }}</p>
+                        </div>
                     </div>
-                    <div class="medicineList_date">
-                    <p>{{ medicine.frequency }}</p>
                 </div>
-                </div>
-                <div class="d-flex flex-wrap">
+                    <div class="d-flex flex-wrap">
                     <div class="medicineList_date">
                         <p>Start date: {{ medicine.start_date }}</p>
                     </div>
                     <div class="medicineList_date">
                         <p>End date: {{ medicine.end_date }}</p>
                     </div>
-                </div>  
-            </li></a>
+                </a> 
+                </div> 
+            </li>
         </ul>
     </div>
         {% endif %}

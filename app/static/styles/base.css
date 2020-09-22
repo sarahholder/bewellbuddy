@@ -1,5 +1,13 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+.fa-times-circle:hover {
+color:red;
+text-shadow: rgba(234, 136, 136, 0.285) 1px 0 10px;
+}
+.stayRight {
+    display: flex;
+    justify-content: end;
+}
 .medicineList {
     min-width: 140px;
 }
@@ -18,9 +26,7 @@
 .medicineValue{
     min-width: 300px;
 }
-.pillSection{
-    width: 325px;
-}
+
 .entryDate{
     min-width: 175px;
     text-align: end;
@@ -75,11 +81,86 @@
 .color-073B4C{
     background-color: #073B4C;
 }
-.color-C637F{
+.color-0C637F{
     background-color: #0C637F;
 }
 .color-A1A9A8{
     background-color: #A1A9A8;
+}
+
+/* This is code for the checkbox */
+
+.symptomContainer{
+    max-width: 800px;
+}
+
+ul.ks-cboxtags {
+    list-style: none;
+    padding: none !important;
+}
+ul.ks-cboxtags li{
+  display: inline-flex;
+}
+ul.ks-cboxtags li label{
+    display: inline-block;
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #fff;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    color: black;
+    transition: all .2s;
+    border: 3px solid #e9a1ff;  
+    background-color: yellow;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: 3px solid #e9a1ff;
+  color:black;
 }
 
 /*
@@ -278,7 +359,7 @@ a.article:hover {
 
 #content {
     width: 100%;
-    padding: 20px;
+    padding: 20px; 
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -289,11 +370,24 @@ a.article:hover {
 @media (min-width: 769px) {
     .hello {
         display: None
-    }    
+    }  
+    .comments{
+        width: 500px;
+    }  
+    .pillSection{
+        width: 325px;
+    }
 }
 
 @media (max-width: 768px) {
-    
+ 
+    .pillSection {
+        width: 300px;
+    }
+
+    .comments {
+        width: 250px;
+    }  
     .bwbIcon {
         width: 2.2em;
     }

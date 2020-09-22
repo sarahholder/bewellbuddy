@@ -1,0 +1,27 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<div>
+    <a href="{% url 'app:entries' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
+    <div class="d-flex flex-wrap mb-5">
+        <h4>{{ entry.entry_date }} </h4>
+        <form action="{% url 'app:entries_detail' entry.id %}" method='POST'>
+            {% csrf_token %}
+            <input type='hidden' name='delete' value='DELETE'>
+            <button class="btn btn-danger ml-5">Delete</button>
+        </form>
+    </div>
+    <div class="pillSection">
+        {% for symptomEntry in  entry.symptoms.all %}
+            <h3 class="symptomBadge col-1 p-1 badge badge-info badge-pill color-{{ symptomEntry.symptom.color }}" >{{ symptomEntry.symptom }}</h3>
+        {% endfor %}            
+    </div>
+    <div>
+        {% if entry.comments %}
+            <p class="mb-0"><strong>Comments:</strong></p> <p class="ml-3 mb-0 ml-0">{{entry.comments}}</p>
+        {% endif %}
+    </div> 
+
+</div>
+
+{% endblock content %} 
