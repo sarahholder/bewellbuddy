@@ -28,5 +28,7 @@ def entries_list(request):
                 entry = new_entry,
                 symptom_id = symptom
             )
+    
+    
 
         return redirect(reverse('app:entries'))

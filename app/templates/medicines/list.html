@@ -8,9 +8,9 @@
     {%for medicine in medicines %}
         {% if medicine.end_date is false %}
     <a href="{% url 'app:medicine_detail' medicine.id %}">
-    <div class="d-flex flex-wrap">
         <ul class="list-group list-group-flush entryList">
-            <li class="list-group-item list-group-item-action d-flex flex-wrap medHover">
+            <li class="list-group-item list-group-item-action">
+            <div class="d-flex flex-wrap">
                 <div class="medicineList_name">
                     <p>{{ medicine.name }}</p>
                 </div> 
@@ -20,9 +20,9 @@
                 <div class="medicineList">
                     <p>{{ medicine.frequency }}</p>
                 </div>
-            </li></a>
-        </ul>
-    </div>
+            </div>
+            </li>
+        </ul></a>
         {% endif %}
         {% endfor %}
 </div>
