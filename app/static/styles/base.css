@@ -1,5 +1,14 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+.pageFas {
+    color: #073B4C !important;
+}
+.medicineKeys{
+    min-width: 150px;
+}
+.medicineValue{
+    min-width: 300px;
+}
 .pillSection{
     width: 325px;
 }
@@ -13,7 +22,7 @@
 .entryList{
     width: 100%;
 }
-.btn-info {
+.btn-info{
     background-color: #073B4C !important;
     border: #073B4C;
 }

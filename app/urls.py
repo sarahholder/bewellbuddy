@@ -10,6 +10,8 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('entries', views.entries_list, name='entries'),
-    path('entryform', views.entry_form, name='entryform')
+    path('entryform', views.entry_form, name='entryform'),
+    path('medicines', views.medicines_list, name='medicines'),
+    path('medicine_detail/<int:medicine_id>', views.medicine_detail, name='medicine_detail')
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

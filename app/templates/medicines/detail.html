@@ -1,0 +1,32 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+<div>
+    <h2>{{ medicine.name }}</h2>
+    <div class="d-flex flex-wrap">
+        <p class="medicineKeys">Dosage:</p> <p>{{ medicine.dosage }}</p>
+    </div>
+    <div class="d-flex flex-wrap">
+        <p class="medicineKeys">Frequency:</p> <p>{{ medicine.frequency }}</p>
+    </div>
+    <div class="d-flex flex-wrap">
+        <p class="medicineKeys">Start date:  <p>{{ medicine.start_date }}</p>
+     </div>
+        {% if medicine.end_date %}
+    <div class="d-flex flex-wrap">
+        <p class="col-2">End date:  <p>{{ medicine.end_date }}</p>
+    </div> 
+        {% endif %}
+        {% if medicine.comments %}
+    <div class="d-flex flex-wrap">
+        <p class="medicineKeys">Comments:  <p>{{ medicine.comments }}</p>
+     </div>
+        {% endif %}
+     <div class="d-flex flex-wrap">
+       <img src="{{ medicine.uploadImg }}"  alt="{{ medicine.name }}"" />
+     </div>
+</div>
+
+
+
+{% endblock content %} 
