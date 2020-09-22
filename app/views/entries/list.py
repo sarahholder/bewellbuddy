@@ -23,12 +23,11 @@ def entries_list(request):
             entry_date = form_data['entry_date'],
             comments = form_data['comments']
         )
+
         for symptom in checked_symptoms:
             SymptomEntry.objects.create(
                 entry = new_entry,
                 symptom_id = symptom
             )
-    
-    
 
-        return redirect(reverse('app:entries'))
+        return redirect('/entries')

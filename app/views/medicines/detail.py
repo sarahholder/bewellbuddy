@@ -24,6 +24,7 @@ def medicine_detail(request, medicine_id):
 
     
     
+    
 
 
         
