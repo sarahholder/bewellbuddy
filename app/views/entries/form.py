@@ -12,9 +12,10 @@ def entry_form(request):
         context = {
             'symptoms': symptoms,
             'todays_date': todays_date
-            
         }
         return render(request, template, context)
+
+
 
 
         

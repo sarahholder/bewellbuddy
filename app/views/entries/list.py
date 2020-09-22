@@ -8,7 +8,6 @@ def entries_list(request):
     if request.method == 'GET':
             
         entries = Entry.objects.all().order_by('-entry_date')
-
         context = {
             "entries": entries,
         }
@@ -17,9 +16,7 @@ def entries_list(request):
 
     elif request.method == 'POST':
         form_data=request.POST
-        print(form_data)
         checked_symptoms = request.POST.getlist('symptoms')
-        print(checked_symptoms)
 
         new_entry = Entry.objects.create(
             user = request.user,
