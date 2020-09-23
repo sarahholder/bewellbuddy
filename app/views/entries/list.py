@@ -23,7 +23,7 @@ def entries_list(request):
 
         new_entry = Entry.objects.create(
             user = request.user,
-            entry_date = form_data['entry_date'],
+            entry_date = form_data['new_entry_date'],
             comments = form_data['comments']
         )
 

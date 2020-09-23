@@ -5,7 +5,7 @@
     <a href="{% url 'app:entries' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
     <div class="d-flex flex-wrap mb-5">
         <h4>{{ entry.entry_date }} </h4>
-        <form action="{% url 'app:entries' entry.id %}" method='POST'>
+        <form action="{% url 'app:entriesdetail' entry.id %}" method='POST'>
             {% csrf_token %}
             <input type='hidden' name='delete' value='DELETE'>
             <button class="btn btn-danger ml-5">Delete</button>
@@ -22,10 +22,9 @@
             <p class="mb-0"><strong>Comments:</strong></p> <p class="ml-3 mb-0 ml-0">{{entry.comments}}</p>
         {% endif %}
     </div> 
-     <form action="{% url 'app:entries' entry.id %}" method='POST'>
-            {% csrf_token %}
-            <input type='hidden' name='update' value='UPDATE' method='PUT'>
+     <form action="{% url 'app:updateentries' entry.id %}" method='GET'>
             <button class="btn btn-dark">Update</button>
+            
     </form>
 </div>
 

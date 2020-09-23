@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
-from app.models import Entry, SymptomEntry
 from django.contrib.auth.decorators import login_required
+from app.models import Entry, SymptomEntry
 
 @login_required
 def entry_detail(request, entry_id):

@@ -7,7 +7,7 @@
     {% if entry.id is not None %}
     <form action="{% url 'app:updateentries' entry.id %}" method="POST" class="entry_form">
     {% else %}
-    <form action="{% url 'app:entriesform' %}" method="POST" class="entry_form">
+    <form action="{% url 'app:entries' %}" method="POST" class="entry_form">
     {% endif %}
     {% csrf_token %}
         <fieldset>
@@ -21,14 +21,24 @@
         </fieldset>  
         <fieldset>   
         <label class="mt-5"> Symptom Choices: </label>
+
         <div class="text-center justify-content-center symptomContainer d-flex flex-wrap">
             <ul class="ks-cboxtags p-0">
-            {% for symptom in symptoms %}
-                <li>
-                    <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}>
-                    <label class="color-{{ symptom.color }} mt-4 mb-4" for={{ symptom.id }}>{{ symptom.name }}</label>
-                </li>
-            {% endfor %}
+            {% if entry.id is not None %}
+                {% for symptom in symptoms %}
+                            <li>
+                                <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}  {% for selected_symptom in selected_symptoms %}{% if selected_symptom.id == symptom.id %} checked {% endif %}{% endfor %}>
+                                <label class="color-{{ symptom.color }} mt-4 mb-4" for={{ symptom.id }}>{{ symptom.name }}</label>
+                            </li>  
+                {% endfor %}
+            {% else %}
+                {% for symptom in symptoms %}
+                    <li>
+                        <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}>
+                        <label class="color-{{ symptom.color }} mt-4 mb-4" for={{ symptom.id }}>{{ symptom.name }}</label>
+                    </li>
+                {% endfor %}
+            {% endif %}
         </fieldset>
         </ul>
           <div class="symptomContainer">
