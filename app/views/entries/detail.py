@@ -16,15 +16,30 @@ def entry_detail(request, entry_id):
         return render(request, template, context)
 
 
-    elif ('delete' in form_data):
-        entry.delete()
+    elif request.method == 'POST':
 
-        entry_symptoms = SymptomEntry.objects.all()
-        
-        for entry_symptom in entry_symptoms:
-            if (entry_symptom.id == entry_id): 
+        entry_symptoms = SymptomEntry.objects.filter(entry=entry)
+
+        if ('put' in form_data): 
+            
+            checked_symptoms = request.POST.getlist('symptoms')
+            entry.entry_date = form_data['entry_date']
+            entry.comments = form_data['comments']
+            entry.save()
+            
+            for entry_symptom in entry_symptoms:
                 entry_symptom.delete()
-    
-        return redirect('/entries')
 
+            for symptom in checked_symptoms:
+                SymptomEntry.objects.create(
+                entry = entry,
+                symptom_id = symptom
+            )
+            
+            return redirect(reverse('app:entriesdetail', args=[entry_id]))
+
+        elif ('delete' in form_data):
+            entry.delete()
         
+            return redirect('/entries')
+            

@@ -17,7 +17,6 @@ def entry_form(request):
             'todays_date': todays_date 
         }
 
-
         return render(request, template, context)
 
 
@@ -47,9 +46,9 @@ def update_entry_form(request, entry_id):
             'todays_date': todays_date,
             'selected_symptoms': selected_symptoms
         }
-
-    
         return render(request, 'entries/form.html', context)
+
+
     
     elif request.method == 'POST':
         checked_symptoms = request.POST.getlist('symptoms')
