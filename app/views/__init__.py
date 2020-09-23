@@ -1,5 +1,4 @@
 from .auth.logout import logout_user
-from .auth.login import login
 from .home import home 
 from .entries.list import entries_list
 from .entries.form import entry_form
@@ -10,6 +9,7 @@ from .medicines.archived import archived_medicines_list
 from .entries.detail import entry_detail
 from .entries.form import update_entry_form
 from .entries.form  import update_entry_form
+from .auth.register import register_user
 
 
 

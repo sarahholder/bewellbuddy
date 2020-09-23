@@ -5,7 +5,7 @@
 <a href="{% url 'app:entries' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
 <h2>Symptoms Entry</h2>
     {% if entry.id is not None %}
-    <form action="{% url 'app:update_entry_form' entry.id %}" method="POST" class="entry_form">
+    <form action="{% url 'app:updateentries' entry.id %}" method="POST" class="entry_form">
     {% else %}
     <form action="{% url 'app:entriesform' %}" method="POST" class="entry_form">
     {% endif %}
