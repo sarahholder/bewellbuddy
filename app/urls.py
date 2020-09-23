@@ -6,12 +6,13 @@ from . import views
 app_name = 'app'
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
+    path('register', views.register_user, name="register"),
     path('', views.home, name='home'),
-    path('login/', views.login, name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('entries', views.entries_list, name='entries'),
-    path('entries_detail/<int:entry_id>', views.entry_detail, name='entries_detail'),
-    path('entryform', views.entry_form, name='entryform'),
+    path('entries/<int:entry_id>', views.update_entry_form, name='updateentries'),
+    path('entriesform', views.entry_form, name='entriesform'), 
+    path('entries_detail/<int:entry_id>', views.entry_detail, name='entriesdetail'),
     path('medicines', views.medicines_list, name='medicines'),
     path('medicine_detail/<int:medicine_id>', views.medicine_detail, name='medicine_detail'),
     path('medicine_form', views.medicine_form, name="medicine_form"),

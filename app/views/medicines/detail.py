@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib.auth.decorators import login_required
 from app.models import Medicine
 
+@login_required
 def medicine_detail(request, medicine_id):
     form_data = request.POST
     medicine = Medicine.objects.get(pk=medicine_id)
@@ -22,6 +24,7 @@ def medicine_detail(request, medicine_id):
             
             return redirect('/medicines')
 
+    
     
     
 

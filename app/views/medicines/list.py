@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, reverse 
+from django.contrib.auth.decorators import login_required
 from app.models import Medicine
 
-
+@login_required
 def medicines_list(request):
     if request.method == 'GET':
             
-        medicines = Medicine.objects.all().order_by('-start_date')
+        medicines = Medicine.objects.filter(user=request.user).order_by('-start_date')
         context = {
             'medicines': medicines,
         }

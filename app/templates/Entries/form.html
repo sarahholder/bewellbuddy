@@ -1,32 +1,59 @@
-
-
 {% extends 'shared/base.html' %}
+
 {% block content %}
 <div class="container">
 <a href="{% url 'app:entries' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
 <h2>Symptoms Entry</h2>
+    {% if entry.id is not None %}
+    <form action="{% url 'app:updateentries' entry.id %}" method="POST" class="entry_form">
+    {% else %}
     <form action="{% url 'app:entries' %}" method="POST" class="entry_form">
+    {% endif %}
     {% csrf_token %}
         <fieldset>
-            <label for="date">Enter date:</label>
-            <input id="date" type="date" name="entry_date" max="{{ todays_date }}" value="{{ todays_date }}" required>
-        </fieldset>     
+            {% if entry.id is not None %}
+                <label for="entry_date">Enter date:</label>
+                <input id="entry_date" type="date" name="entry_date" max="{{ todays_date }}"  value="{{ entry.entry_date|date:'Y-m-d' }}" required>
+            {% else %}
+                <label for="new_entry_date">Enter date:</label>
+                <input id="new_entry_date" type="date" name="new_entry_date" max="{{ todays_date }}" value="{{ todays_date }}" required>
+            {% endif %}
+        </fieldset>  
+        <fieldset>   
         <label class="mt-5"> Symptom Choices: </label>
+
         <div class="text-center justify-content-center symptomContainer d-flex flex-wrap">
             <ul class="ks-cboxtags p-0">
-            {% for symptom in symptoms %}
-                <li>
-                    <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}>
-                    <label class="color-{{ symptom.color }} mt-4 mb-4" for={{ symptom.id }}>{{ symptom.name }}</label>
-                </li>
-            {% endfor %}
-          </ul>
-          <fieldset>
-            <label for="comments">Comments:</label>
-            <input class="comments" id="comments" type="text" name="comments">
+            {% if entry.id is not None %}
+                {% for symptom in symptoms %}
+                            <li>
+                                <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}  {% for selected_symptom in selected_symptoms %}{% if selected_symptom.id == symptom.id %} checked {% endif %}{% endfor %}>
+                                <label class="color-{{ symptom.color }} mt-4 mb-4" for={{ symptom.id }}>{{ symptom.name }}</label>
+                            </li>  
+                {% endfor %}
+            {% else %}
+                {% for symptom in symptoms %}
+                    <li>
+                        <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}>
+                        <label class="color-{{ symptom.color }} mt-4 mb-4" for={{ symptom.id }}>{{ symptom.name }}</label>
+                    </li>
+                {% endfor %}
+            {% endif %}
         </fieldset>
-        <div>
-        <button class="btn btn-info" type="submit" name="submit">Add Entry</button>
+        </ul>
+          <div class="symptomContainer">
+            <fieldset>
+                <label for="comments">Comments:</label>
+                <input class="comments" id="comments" type="text" name="comments" value="{{ entry.comments }}">
+            </fieldset>
+            {% if entry.id is not None %}
+            <div class="text-center">
+                <input type="hidden" name="actual_method" value="POST">
+                <input type="submit" value="Update" />
+            </div>
+            {% else %}
+            <input type="submit" value="Add Entry" />
+            {% endif %}
         </div>
     </form>
 </div>
