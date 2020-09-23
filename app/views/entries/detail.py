@@ -6,10 +6,11 @@ def entry_detail(request, entry_id):
 
     if request.method == 'GET':
         entry = Entry.objects.get(pk=entry_id)
+        template = 'entries/detail.html',
         context = {
-            'entry': entry
+            'entry': entry,
         }
-        return render(request, "entries/detail.html", context)
+        return render(request, template, context)
 
     elif ('delete' in form_data):
         

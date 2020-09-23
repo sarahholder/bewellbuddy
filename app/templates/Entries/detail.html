@@ -5,20 +5,16 @@
     <a href="{% url 'app:entries' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
     <div class="d-flex flex-wrap mb-5">
         <h4>{{ entry.entry_date }} </h4>
-        <form action="{% url 'app:entries_detail' entry.id %}" method='POST'>
+        <form action="{% url 'app:entries' entry.id %}" method='POST'>
             {% csrf_token %}
             <input type='hidden' name='delete' value='DELETE'>
             <button class="btn btn-danger ml-5">Delete</button>
         </form>
-        <form action="{% url 'app:entryform' entry.id %}" method='POST'>
-            {% csrf_token %}
-            <input type='hidden' name='edit' value='EDIT'>
-            <button class="btn btn-dark ml-5">Edit</button>
-        </form>
+      
     </div>
     <div class="pillSection">
         {% for symptomEntry in  entry.symptoms.all %}
-            <h3 class="symptomBadge col-1 p-1 badge badge-info badge-pill color-{{ symptomEntry.symptom.color }}" >{{ symptomEntry.symptom }}</h3>
+            <h3 class="symptomBadge col-1 p-2 badge badge-info badge-pill color-{{ symptomEntry.symptom.color }}" >{{ symptomEntry.symptom }}</h3>
         {% endfor %}            
     </div>
     <div>
@@ -26,7 +22,11 @@
             <p class="mb-0"><strong>Comments:</strong></p> <p class="ml-3 mb-0 ml-0">{{entry.comments}}</p>
         {% endif %}
     </div> 
-
+     <form action="{% url 'app:entries' entry.id %}" method='POST'>
+            {% csrf_token %}
+            <input type='hidden' name='update' value='UPDATE' method='PUT'>
+            <button class="btn btn-dark">Update</button>
+    </form>
 </div>
 
 {% endblock content %} 

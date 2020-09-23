@@ -5,6 +5,8 @@ from app.models import Entry, SymptomEntry
 
 
 def entries_list(request):
+    form_data = request.POST
+
     if request.method == 'GET':
             
         entries = Entry.objects.all().order_by('-entry_date')
@@ -15,7 +17,7 @@ def entries_list(request):
         return render(request, "entries/list.html", context)
 
     elif request.method == 'POST':
-        form_data = request.POST
+        
         checked_symptoms = request.POST.getlist('symptoms')
 
         new_entry = Entry.objects.create(

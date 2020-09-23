@@ -1,5 +1,5 @@
 from django import forms
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from app.models import Symptom, Entry, SymptomEntry
 import datetime
 
@@ -14,38 +14,47 @@ def entry_form(request):
             'symptoms': symptoms,
             'todays_date': todays_date
         }
+        
         return render(request, template, context)
 
-def edit_entry_form(request, entry_id):
+
+
+def update_entry_form(request, entry_id):
+    form_data = request.POST
+    symptoms = Symptom.objects.all() 
+    entry = Entry.objects.get(pk=entry_id)
+    entry_symptoms = SymptomEntry.objects.all()
+    todays_date = datetime.date.today().strftime("%Y-%m-%d")
+
     if request.method == 'GET':
-        template = 'entries/form.html'
-        return render(request, template)
+                 
+        context = {
+            'entry': entry,
+            'symptoms': symptoms,
+            'todays_date': todays_date
+        }
+        return render(request, 'entries/form.html', context)
     
-    if request.method == 'POST':
-        entry = Entry.objects.get(pk=entry_id) 
-        entry_symptoms = SymptomEntry.objects.all()
-        entrydate = entry.entry_date
-        todays_date = datetime.date.today().strftime("%Y-%m-%d")
-        for entry_symptom in entry_symptoms:
-            if(entry_symptom.id == entry_id):
-                symptoms = []
-                symptoms.append(entry_symptom)
-                
-                context = {
-                    'entry': entry,
-                    'symptoms': symptoms,
-                    'entrydate': entrydate, 
-                    'todays_date': todays_date
+    elif request.method == 'POST':
+        checked_symptoms = request.POST.getlist('symptoms')
 
-                }
-                return render(request, "entries/list.html", context)
+        new_entry = Entry.objects.create(
+            user = request.user,
+            entry_date = form_data['entry_date'],
+            comments = form_data['comments']
+        )
+
+        for symptom in checked_symptoms:
+            SymptomEntry.objects.create(
+                entry = new_entry,
+                symptom_id = symptom
+            )
+
+            return render(request, "entries/list.html", context)
+
+    
+    
         
-
-        
-        
-
-
-
 
 
         
