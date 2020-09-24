@@ -6,37 +6,28 @@
     <h2>Archived Medication</h2>
     <p>Click one below to view more details</p>
     {%for medicine in medicines %}
-    <div>
+    <div clas="d-flex flex-wrap">
         <ul class="list-group list-group-flush entryList">
-            <li class="list-group-item list-group-item-action">
-                <div class="d-flex flex-wrap p-1 m-2">
-                <a href="{% url 'app:medicine_detail' medicine.id %}">
-                <div>
-                    <div class="medicineList_name">
-                        <h5>{{ medicine.name }}</h5>
-                    </div> 
-                    <div>
-                        <div class="medicineList">
-                            <p>{{ medicine.dosage }}</p>
-                        </div>
-                        <div class="medicineList_date">
-                          <p>{{ medicine.frequency }}</p>
-                        </div>
-                    </div>
-                </div>
-                    <div class="d-flex flex-wrap">
-                    <div class="medicineList_date">
-                        <p>Start date: {{ medicine.start_date }}</p>
-                    </div>
-                    <div class="medicineList_date">
-                        <p>End date: {{ medicine.end_date }}</p>
-                    </div>
-                </a> 
-                </div> 
-            </li>
+        <a href="{% url 'app:medicine_detail' medicine.id %}">
+        <li class="list-group-item list-group-item-action">
+        <div class="d-flex flex-wrap p-1 m-2">
+            <h5 class="mr-5">{{ medicine.name }}</h5>
+            <p class="ml-5 mr-5">Dosage: {{ medicine.dosage }}</p>
+            <p>Frequency: {{ medicine.frequency }}</p>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="medicineList_date">
+                <p>Start date: {{ medicine.start_date }}</p>
+            </div>
+            <div class="medicineList_date">
+                <p>End date: {{ medicine.end_date }}</p>
+            </div>
+        </div> 
+        </li>
+        </a>
         </ul>
     </div>
-        {% endfor %}
+    {% endfor %}
 </div>
 
 {% endblock content %}
