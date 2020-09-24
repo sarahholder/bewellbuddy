@@ -1,14 +1,22 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from app.models import Symptom, SymptomEntry
+from app.models import Symptom, SymptomEntry, Entry
 
 def charts(request):
 
     return render(request, 'charts.html', {})
 
 def get_data(request, *args, **kwargs):
+    entries = Entry.objects.filter(user=request.user)
     symptoms = Symptom.objects.all()
     allSymptomEntries = SymptomEntry.objects.all()
+    justMySymptomEntries = []
+
+    for eachSymptomEntry in allSymptomEntries:
+        for entry in entries: 
+            if eachSymptomEntry.entry_id == entry.id:
+                justMySymptomEntries.append(eachSymptomEntry)
+                
     total = []
     one = []
     two = []
@@ -23,12 +31,13 @@ def get_data(request, *args, **kwargs):
 
     symptom_names = []
     symptom_colors = []
+
     for symptom in symptoms:
         symptom_names.append(symptom.name)
         symptom.color = ''.join('#'+ symptom.color)
         symptom_colors.append(symptom.color)
 
-    for symptomEntry in allSymptomEntries:
+    for symptomEntry in justMySymptomEntries:
             if symptomEntry.symptom_id == 1:
                 one.append(symptomEntry)
             if symptomEntry.symptom_id == 2:
