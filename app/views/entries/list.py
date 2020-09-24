@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from app.models import Entry, SymptomEntry
-from django.contrib.auth.decorators import login_required
 
 @login_required
 def entries_list(request):

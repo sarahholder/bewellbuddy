@@ -18,6 +18,8 @@ urlpatterns = [
     path('medicine_update/<int:medicine_id>', views.update_medicine_form, name='medicineupdate'),
     path('medicine_form', views.medicine_form, name="medicine_form"),
     path('archived_medicine', views.archived_medicines_list, name="archived_medicine"),
-    path('archived_medicine/<int:medicine_id>', views.archived_medicines_list, name="archived_medicine")
+    path('archived_medicine/<int:medicine_id>', views.archived_medicines_list, name="archived_medicine"), 
+    path('charts', views.charts, name='charts'),
+    path('api/data/', views.get_data, name='api-data'),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,4 +1,8 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+.charts{
+    width: 400px;
+    height: 400px;;
+}
 fieldset{
     margin: 20px;
 }
@@ -7,7 +11,7 @@ fieldset{
     width: 25%;
 }
 .medfield {
-    min-width: 225px;
+    min-width: 175px;
     width: 40%;
 }
 .fa-times-circle:hover {
@@ -174,7 +178,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 }
 
 /*
-    DEMO STYLE
+    SIDE NAVBAR
 */
 
 body {

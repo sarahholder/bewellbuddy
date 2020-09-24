@@ -1,7 +1,68 @@
 {% extends 'shared/base.html' %}
 
+<script>
+{% block jquery %}
+var endpoint = '/api/data/'
+var defaultData = []
+var labels = []
+var colors = []
+$.ajax({
+    method: "GET", 
+    url: endpoint,
+    success: function(data){
+        labels = data.labels
+        defaultData = data.default
+        colors = data.colors
+        setChart()
+    }
+   
+})
+
+function setChart(){
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+    labels: labels,
+    datasets: [{
+            label: '# of Votes',
+            data: defaultData,
+            backgroundColor: colors,
+            }],
+    options: {
+            legend: {
+             display: false
+            }
+        }
+    }
+    })
+       
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+      
+
+
+{% endblock %}
+</script>
+
+
 {% block content %}
     
-  
-<h1>Hey Buddy</h1>
+<h1>Welcome, {{user.first_name}} {{user.last_name}}!</h1>
+<div class="d-flex flex-wrap">
+    <div>
+        <div class='charts m-5'>
+        <h2 class="text-center">Symptoms Overview</h2>
+        <canvas id="myChart" class="charts"></canvas>
+    </div>
+    </div>
+</div>
+
+
 {% endblock content %}
