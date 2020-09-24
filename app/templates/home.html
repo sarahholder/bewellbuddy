@@ -1,7 +1,71 @@
 {% extends 'shared/base.html' %}
 
+<script>
+{% block jquery %}
+
+var endpoint = '/api/data/'
+var defaultData = []
+var labels = []
+var colors = []
+$.ajax({
+    method: "GET", 
+    url: endpoint,
+    success: function(data){
+        labels = data.labels
+        defaultData = data.default
+        colors = data.colors
+        setChart()
+    }
+   
+})
+
+function setChart(){
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+    labels: labels,
+    datasets: [{
+            label: '# of Votes',
+            data: defaultData,
+            backgroundColor: colors,
+            }],
+        }
+    })
+       
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+      
+
+
+{% endblock %}
+</script>
+
+
 {% block content %}
-    
-  
-<h1>Hey Buddy</h1>
+ <div class="container">  
+    <h1 class="welcome text-center">Welcome, {{user.first_name}} {{user.last_name}}!</h1>
+    <div class="d-flex flex-wrap">
+        <div class="col-6">
+            <div class='charts mt-5'>
+                <h2 class="text-center">Symptoms Overview</h2>
+                <a href="{% url 'app:entries' %}"><p class='text-center'>View Sypmtom Entries</p></a>
+                <canvas id="myChart" class="charts"></canvas>
+            </div>
+        </div>
+        <div class="col-6 mt-5">
+            <h2 class="text-center">Current Medicine</h2>
+            <a href="{% url 'app:medicines' %}"><p class='text-center'>View Current Medication List</p></a>
+            <img class="homeMed charts" src="../static/images/drug.png" alt="medication list icon">
+        </div>
+    </div>
+</div> 
+
+
 {% endblock content %}

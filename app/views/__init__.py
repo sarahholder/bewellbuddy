@@ -10,6 +10,8 @@ from .medicines.archived import archived_medicines_list
 from .entries.detail import entry_detail
 from .entries.form  import update_entry_form
 from .medicines.form import update_medicine_form
+from .charts import charts
+from .charts import get_data
 
 
 

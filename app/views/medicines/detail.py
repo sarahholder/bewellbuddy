@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
+import datetime
 from app.models import Medicine
 
 @login_required
 def medicine_detail(request, medicine_id):
     form_data = request.POST
+    todays_date = datetime.date.today().strftime("%Y-%m-%d")
     medicine = Medicine.objects.get(pk=medicine_id)
 
     if request.method == 'GET':
