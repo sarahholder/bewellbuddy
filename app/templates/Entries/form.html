@@ -50,13 +50,12 @@
             {% if entry.id is not None %}
             <div class="text-center">
                 <input type="hidden" name="put" value="PUT">
-                <input type="submit" value="Update" />
-            </div>
+                <input class="btn btn-info" type="submit" value="Update" />
             {% else %}
             <button class="btn btn-info" type="submit">Add Entry</button>
             {% endif %}
+            </div
         </div>
     </form>
 </div>
-        
 {% endblock content %}

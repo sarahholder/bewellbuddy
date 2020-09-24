@@ -1,5 +1,15 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
+fieldset{
+    margin: 20px;
+}
+.medname {
+    min-width: 150px;
+    width: 25%;
+}
+.medfield {
+    min-width: 225px;
+    width: 40%;
+}
 .fa-times-circle:hover {
 color:red;
 text-shadow: rgba(234, 136, 136, 0.285) 1px 0 10px;

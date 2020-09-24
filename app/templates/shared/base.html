@@ -49,7 +49,7 @@
                             <a class="menu-list" href="{% url 'app:entriesform' %}">Add</a>
                         </li>
                     </ul>
-                      <a href="#medSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#medSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <img class="menuIcon" src="../../static/images/medicine.png" alt="medicine icon"/> 
                         Medicine Tracker
                     </a>
@@ -69,6 +69,12 @@
                     <a href="#">
                       <img class="menuIcon" src="../../static/images/recall.png" alt="Recall icon"/> 
                       Medicine Recalls
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="{% url 'app:logout' %}">
+                       <img class="menuIcon" src="../../static/images/logout.png" alt="loutout icon"/> 
+                        Logout
                     </a>
                 </li>
             </ul>
