@@ -1,8 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-.charts{
-    width: 300px;
-    height: 300px;;
-}
+
 fieldset{
     margin: 20px;
 }
@@ -391,10 +388,17 @@ a.article:hover {
     .pillSection{
         width: 325px;
     }
+    .charts{
+        width: 400px;
+        height: 400px;;
+    }
 }
 
 @media (max-width: 768px) {
- 
+    .charts{
+        width: 200px;
+        height: 200px;;
+    }
     .pillSection {
         width: 300px;
     }
