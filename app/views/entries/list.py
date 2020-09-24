@@ -33,4 +33,4 @@ def entries_list(request):
                 symptom_id = symptom
             )
 
-        return redirect('/entries')
+    return redirect('app:entries')

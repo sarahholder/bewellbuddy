@@ -1,37 +1,65 @@
 {% extends 'shared/base.html' %}
+
 {% block content %}
+<div class="container">
 <a href="{% url 'app:medicines' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
 <h2>Medicine Entry</h2>
+    {% if medicine.id is not None %}
+    <form action="{% url 'app:medicine_detail' medicine.id %}" method="POST" class="form">
+      {% else %}
     <form action="{% url 'app:medicines' %}" method="POST" class="form">
+    {% endif %}
     {% csrf_token %}
         <fieldset>
             <label for="name">Name:</label>
-            <input id="name" type="text" name="name" required>
+            <input class="medname" id="name" type="text" name="name" value="{{ medicine.name }}" required>
         </fieldset>
          <fieldset>
             <label for="dosage">Dosage:</label>
-            <input id="dosage" type="text" name="dosage" required>
+            <input id="dosage" type="text" name="dosage" value="{{ medicine.dosage }}" required>
         </fieldset>
         <fieldset>
             <label for="frequency">Frequency:</label>
-            <input id="frequency" type="text" name="frequency" required>
+            <input id="frequency" type="text" name="frequency" value="{{ medicine.frequency }}" required>
         </fieldset>
+        {% if medicine.id is not None %}
+        <fieldset>
+            <label for="start_date">Start Date:</label>
+            <input id="start_date" type="date" name="start_date" value={{ medicine.start_date|date:'Y-m-d'  }} required>
+        </fieldset>
+        {% else %}
         <fieldset>
             <label for="start_date">Start Date:</label>
             <input id="start_date" type="date" name="start_date" value={{ todays_date }} required>
         </fieldset>
+        {% endif %}
+        {% if medicine.id is not None %}
+         <fieldset>
+            <label for="end_date">End Date:</label>
+            <input id="end_date" type="date" name="end_date" value={{ medicine.end_date|date:'Y-m-d'  }} >
+        </fieldset>
+        {% else %}
         <fieldset>
             <label for="end_date">End Date:</label>
             <input id="end_date" type="date" name="end_date">
         </fieldset>
+        {% endif %}
          <fieldset>
             <label for="comments">Comments:</label>
-            <input id="comments" type="text" name="comments">
+            <input class="medfield" id="comments" type="text" name="comments" value={{ medicine.comments }} >
         </fieldset>
         <fieldset>
             <label for="uploadImg">Image Url:</label>
-            <input id="uploadImg" type="text" name="uploadImg">
+            <input class="medfield" id="uploadImg" type="text" name="uploadImg" value={{ medicine.uploadImg }}>
         </fieldset>
-        <button class="btn btn-info" type="submit">Add Medication</button>
+        {% if medicine.id is not None %}
+            <div class="text-center">
+                <input type="hidden" name="put" value="PUT">
+                <input class="btn btn-info" type="submit" value="Update" />
+            </div>
+            {% else %}
+            <button class="btn btn-info" type="submit">Add Entry</button>
+            {% endif %}
     </form>
+</div>
 {% endblock content %}

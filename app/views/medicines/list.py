@@ -15,7 +15,6 @@ def medicines_list(request):
 
     elif request.method == 'POST':
         form_data = request.POST
-        print(form_data)
 
         if not form_data['end_date']:
             new_medicine = Medicine.objects.create(

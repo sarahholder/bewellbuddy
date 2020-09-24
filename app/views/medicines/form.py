@@ -1,8 +1,8 @@
 from django import forms
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from app.models import Medicine
 import datetime
+from app.models import Medicine
 
 @login_required
 def medicine_form(request):
@@ -12,3 +12,15 @@ def medicine_form(request):
             'todays_date': todays_date
         }
         return render(request, 'medicines/form.html', context)
+
+def update_medicine_form(request, medicine_id):
+    form_data = request.POST
+    medicine = Medicine.objects.get(pk=medicine_id)
+
+    if request.method == 'GET':
+        context = { 
+            'medicine': medicine
+        }
+
+        return render(request, 'medicines/form.html', context)
+

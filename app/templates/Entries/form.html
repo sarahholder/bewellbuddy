@@ -5,7 +5,7 @@
 <a href="{% url 'app:entries' %}"><i class="fas fa-arrow-alt-circle-left fa-2x pageFas float-right mr-5"></i></a>
 <h2>Symptoms Entry</h2>
     {% if entry.id is not None %}
-    <form action="{% url 'app:updateentries' entry.id %}" method="POST" class="entry_form">
+    <form action="{% url 'app:entriesdetail' entry.id %}" method="POST" class="entry_form">
     {% else %}
     <form action="{% url 'app:entries' %}" method="POST" class="entry_form">
     {% endif %}
@@ -27,7 +27,8 @@
             {% if entry.id is not None %}
                 {% for symptom in symptoms %}
                             <li>
-                                <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}  {% for selected_symptom in selected_symptoms %}{% if selected_symptom.id == symptom.id %} checked {% endif %}{% endfor %}>
+                                <input type="checkbox" id="{{ symptom.id }}" name="symptoms" value={{ symptom.id }}  
+                                {% for selected_symptom in selected_symptoms %}{% if selected_symptom.id == symptom.id %} checked {% endif %}{% endfor %}>
                                 <label class="color-{{ symptom.color }} mt-4 mb-4" for={{ symptom.id }}>{{ symptom.name }}</label>
                             </li>  
                 {% endfor %}
@@ -48,14 +49,13 @@
             </fieldset>
             {% if entry.id is not None %}
             <div class="text-center">
-                <input type="hidden" name="actual_method" value="POST">
-                <input type="submit" value="Update" />
-            </div>
+                <input type="hidden" name="put" value="PUT">
+                <input class="btn btn-info" type="submit" value="Update" />
             {% else %}
-            <input type="submit" value="Add Entry" />
+            <button class="btn btn-info" type="submit">Add Entry</button>
             {% endif %}
+            </div
         </div>
     </form>
 </div>
-        
 {% endblock content %}
