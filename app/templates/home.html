@@ -2,6 +2,7 @@
 
 <script>
 {% block jquery %}
+Chart.defaults.global.legend.display = false;
 var endpoint = '/api/data/'
 var defaultData = []
 var labels = []
@@ -24,17 +25,17 @@ function setChart(){
     type: 'doughnut',
     data: {
     labels: labels,
+    options: {
+            legend: {
+             display: false
+            }
+        },
     datasets: [{
             label: '# of Votes',
             data: defaultData,
             backgroundColor: colors,
             }],
-    options: {
-            legend: {
-             display: false
-            }
         }
-    }
     })
        
             scales: {
