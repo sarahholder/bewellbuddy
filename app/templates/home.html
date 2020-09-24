@@ -54,16 +54,23 @@ function setChart(){
 
 
 {% block content %}
-    
-<h1>Welcome, {{user.first_name}} {{user.last_name}}!</h1>
-<div class="d-flex flex-wrap">
-    <div>
-        <div class='charts m-5'>
-        <h2 class="text-center">Symptoms Overview</h2>
-        <canvas id="myChart" class="charts"></canvas>
+ <div class="container">  
+    <h1 class="welcome text-center">Welcome, {{user.first_name}} {{user.last_name}}!</h1>
+    <div class="d-flex flex-wrap row">
+        <div class="col-6">
+            <div class='charts mt-5'>
+                <h2 class="text-center">Symptoms Overview</h2>
+                <a href="{% url 'app:entries' %}"><p class='text-center'>View Sypmtom Entries</p></a>
+                <canvas id="myChart" class="charts"></canvas>
+            </div>
+        </div>
+        <div class="col-6 mt-5">
+            <h2 class="text-center">Current Medicine</h2>
+            <a href="{% url 'app:medicines' %}"><p class='text-center'>View Current Medication List</p></a>
+            <img class="homeMed charts" src="../static/images/drug.png" alt="medication list icon">
+        </div>
     </div>
-    </div>
-</div>
+</div> 
 
 
 {% endblock content %}
