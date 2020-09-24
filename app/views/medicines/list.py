@@ -1,16 +1,20 @@
 from django.shortcuts import render, redirect, reverse 
 from django.contrib.auth.decorators import login_required
 from app.models import Medicine
+import datetime
 
 @login_required
 def medicines_list(request):
     if request.method == 'GET':
-            
+        todays_date = datetime.date.today().strftime("%Y-%m-%d")
         medicines = Medicine.objects.filter(user=request.user).order_by('-start_date')
-        context = {
-            'medicines': medicines,
-        }
+        activeMed = medicines.exclude(end_date__lt=datetime.date.today())
 
+        print(activeMed)
+        currentMeds = []
+        context = {
+            'medicines': activeMed,
+        }
         return render(request, "medicines/list.html", context)
 
     elif request.method == 'POST':

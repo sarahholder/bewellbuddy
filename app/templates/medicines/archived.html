@@ -6,7 +6,6 @@
     <h2>Archived Medication</h2>
     <p>Click one below to view more details</p>
     {%for medicine in medicines %}
-        {% if medicine.end_date is not false %}
     <div>
         <ul class="list-group list-group-flush entryList">
             <li class="list-group-item list-group-item-action">
@@ -37,7 +36,6 @@
             </li>
         </ul>
     </div>
-        {% endif %}
         {% endfor %}
 </div>
 

@@ -6,7 +6,6 @@
     <h2>Current Medications</h2>
     <p>Click one below to view more details</p>
     {%for medicine in medicines %}
-        {% if medicine.end_date is false %}
     <a href="{% url 'app:medicine_detail' medicine.id %}">
         <ul class="list-group list-group-flush entryList">
             <li class="list-group-item list-group-item-action">
@@ -23,7 +22,6 @@
             </div>
             </li>
         </ul></a>
-        {% endif %}
         {% endfor %}
 </div>
 
