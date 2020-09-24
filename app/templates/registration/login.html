@@ -1,10 +1,15 @@
 {% extends 'shared/base.html' %} {% block content %}
+<div class="container">
 <h2 class="m-5">Please Login</h2>
 
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-info" type="submit">Login</button>
-
+    <div>
+    </div>
 </form>
+    <p> Or click register for a new user. </p>
+    <a href="{% url 'app:register' %}"><button class="btn btn-info">Register</button></a>
+</div>
 {% endblock %} 

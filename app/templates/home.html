@@ -25,11 +25,6 @@ function setChart(){
     type: 'doughnut',
     data: {
     labels: labels,
-    options: {
-            legend: {
-             display: false
-            }
-        },
     datasets: [{
             label: '# of Votes',
             data: defaultData,
@@ -56,7 +51,7 @@ function setChart(){
 {% block content %}
  <div class="container">  
     <h1 class="welcome text-center">Welcome, {{user.first_name}} {{user.last_name}}!</h1>
-    <div class="d-flex flex-wrap row">
+    <div class="d-flex flex-wrap">
         <div class="col-6">
             <div class='charts mt-5'>
                 <h2 class="text-center">Symptoms Overview</h2>

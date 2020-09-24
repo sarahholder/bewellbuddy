@@ -1,6 +1,7 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
+<div>
     <h1>Register</h1>
 
     <form action="{% url 'app:register' %}" method="post">
@@ -34,5 +35,5 @@
         <input type="submit" value="Register" />
 
     </form>
-
+</div>
 {% endblock %}
