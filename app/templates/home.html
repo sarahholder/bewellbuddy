@@ -25,6 +25,7 @@ function setChart(){
     type: 'doughnut',
     data: {
     labels: labels,
+    display: true,
     datasets: [{
             label: '# of Votes',
             data: defaultData,
@@ -49,20 +50,20 @@ function setChart(){
 
 
 {% block content %}
- <div class="container">  
-    <h1 class="welcome text-center">Welcome, {{user.first_name}} {{user.last_name}}!</h1>
-    <div class="d-flex flex-wrap">
-        <div class="col-6">
+ <div class="container">
+    <div>
+        <h1 class="welcome text-center">Welcome, {{user.first_name}} {{user.last_name}}!</h1>
+    </div>
+    <div class="d-flex flex-wrap justify-content-between">
             <div class='charts mt-5'>
-                <h2 class="text-center">Symptoms Overview</h2>
-                <a href="{% url 'app:entries' %}"><p class='text-center'>View Sypmtom Entries</p></a>
+                <a href="{% url 'app:entries' %}"><h2 class="text-center">Symptoms Overview</h2>
+                <p class='text-center'>View Sypmtom Entries</p></a>
                 <canvas id="myChart" class="charts"></canvas>
             </div>
-        </div>
-        <div class="col-6 mt-5">
-            <h2 class="text-center">Current Medicine</h2>
-            <a href="{% url 'app:medicines' %}"><p class='text-center'>View Current Medication List</p></a>
-            <img class="homeMed charts" src="../static/images/drug.png" alt="medication list icon">
+        <div class="divWidth">
+            <a href="{% url 'app:medicines' %}"><h2 class="text-center mt-5">Current Medicine</h2>
+            <p class='text-center'>View Current Medication List</p>
+            <img class="homeMed" src="../static/images/drug.png" alt="medication list icon"></a>
         </div>
     </div>
 </div> 
