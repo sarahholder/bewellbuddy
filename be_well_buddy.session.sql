@@ -12,7 +12,7 @@ SET
 Where 
     id = 5;
 
-DELETE FROM app_symptomentry;
+DELETE FROM app_medicine;
 
 
 update django_admin_log

@@ -1,5 +1,11 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
+.maxphotowidth{
+    max-width:300px;
+    max-height:400px;
+}
+.divwidth{
+    width: 400px;
+}
 .welcome{
     width: 100%;
 }
@@ -371,9 +377,9 @@ a.article:hover {
     CONTENT STYLE
 ----------------------------------------------------- */
 
+
 #content {
-    width: 100%;
-    padding: 20px; 
+    width: 100%; 
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -395,17 +401,20 @@ a.article:hover {
         width: 400px;
         height: 400px;;
     }
+    .homeMed {
+        width: 400px;
+    }
+
 }
 
 @media (max-width: 768px) {
-    .charts{
-        width: 200px;
-        height: 200px;;
-    }
+ 
     .pillSection {
         width: 300px;
     }
-
+    .homeMed {
+    width: 275px;
+    }
     .comments {
         width: 250px;
     }  
