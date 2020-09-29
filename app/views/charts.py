@@ -1,16 +1,23 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from app.models import Symptom, SymptomEntry, Entry
+import datetime
 
 def charts(request):
 
     return render(request, 'charts.html', {})
 
 def get_data(request, *args, **kwargs):
-    entries = Entry.objects.filter(user=request.user)
+    today = datetime.date.today()
+    todays_date = today - datetime.timedelta(days=30)
+    thirty_days_ago = today - datetime.timedelta(days=30)
+    entries = Entry.objects.filter(user=request.user).filter(entry_date__gte=thirty_days_ago)
     symptoms = Symptom.objects.all()
     allSymptomEntries = SymptomEntry.objects.all()
     justMySymptomEntries = []
+
+
+    print('this is the last 30 days', entries)
 
     for eachSymptomEntry in allSymptomEntries:
         for entry in entries: 
