@@ -42,8 +42,6 @@ function setChart(){
                 }]
             }
         }
-      
-
 
 {% endblock %}
 </script>
@@ -57,6 +55,7 @@ function setChart(){
     <div class="d-flex flex-wrap justify-content-between">
             <div class='charts mt-5'>
                 <a href="{% url 'app:entries' %}"><h2 class="text-center">Symptoms Overview</h2>
+                <p class='text-center'>Previous 30 days</p>
                 <p class='text-center'>View Sypmtom Entries</p></a>
                 <canvas id="myChart" class="charts"></canvas>
             </div>
